@@ -1,12 +1,18 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development', // Modo desarrollo
-  entry: './src/index.js', // Archivo de entrada
+  entry: './src/js/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js', // Archivo de salida
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
   devServer: {
     static: './dist', // Carpeta donde lanzara los archivos
     port: 3000, // Puerto del servidor de desarrollo

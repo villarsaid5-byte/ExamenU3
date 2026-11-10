@@ -1,19 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./public/img/favico.png" type="image/x-icon">
-    <title>Examen Unidad 4</title>
-</head>
-<body>
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col text-center">
-                <h1 class="text-danger">Plantilla Examen Unidad 4</h1>
-            </div>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prueba expresiones regulares de JavaScript con cualquier texto."
+    />
+    <title>Regex Lab | Probador de expresiones regulares</title>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Regex Lab, inicio">
+          <span class="brand-mark" aria-hidden="true">.*</span>
+          <span>regex<span class="brand-light">lab</span></span>
+        </a>
+        <span class="topbar-note">Probador de expresiones regulares</span>
+      </header>
+
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="intro">
+          <span class="eyebrow"><span class="status-dot"></span> HERRAMIENTA DE PRUEBA</span>
+          <h1 id="page-title">Encuentra el patrón.</h1>
+          <p>Escribe una expresión regular y comprueba al instante si aparece en tu texto.</p>
         </div>
-    </div>    
-    <script src="./bundle.js"></script>
-</body>
+
+        <form class="tester-card" id="regex-form" novalidate>
+          <div class="card-heading">
+            <div>
+              <span class="step-label">01 / EXPRESIÓN</span>
+              <h2>Define tu patrón</h2>
+            </div>
+            <span class="syntax-badge">JavaScript · RegExp</span>
+          </div>
+
+          <label for="regex-input">Expresión regular</label>
+          <div class="regex-field">
+            <span class="regex-delimiter" aria-hidden="true">/</span>
+            <input
+              id="regex-input"
+              name="regex"
+              type="text"
+              placeholder="^[a-zA-Z]+$"
+              autocomplete="off"
+              spellcheck="false"
+              aria-describedby="regex-hint"
+            />
+            <span class="regex-delimiter" aria-hidden="true">/</span>
+            <input
+              id="flags-input"
+              name="flags"
+              type="text"
+              placeholder="flags"
+              aria-label="Opciones de expresión regular"
+              autocomplete="off"
+              spellcheck="false"
+              maxlength="8"
+            />
+          </div>
+          <p class="field-hint" id="regex-hint">
+            Escribe el patrón sin las barras. Opciones opcionales: <code>i</code> ignora mayúsculas,
+            <code>m</code> busca por línea, <code>s</code> incluye saltos de línea.
+          </p>
+
+          <div class="section-divider">
+            <span class="step-label">02 / TEXTO</span>
+            <span class="char-count" id="char-count">0 caracteres</span>
+          </div>
+          <label for="text-input">Texto para comprobar</label>
+          <textarea
+            id="text-input"
+            name="text"
+            rows="6"
+            placeholder="Pega o escribe aquí el texto que quieres analizar..."
+            spellcheck="false"
+          ></textarea>
+
+          <div class="actions">
+            <button class="button button-primary" type="submit">
+              <span aria-hidden="true">⌕</span>
+              Comparar texto
+            </button>
+            <button class="button button-secondary" id="clear-button" type="button">
+              Limpiar
+            </button>
+          </div>
+
+          <div class="result" id="result" role="status" aria-live="polite" hidden>
+            <span class="result-icon" id="result-icon" aria-hidden="true"></span>
+            <div>
+              <p class="result-title" id="result-title"></p>
+              <p class="result-detail" id="result-detail"></p>
+            </div>
+          </div>
+        </form>
+
+        <footer class="page-footer">
+          <span>Las pruebas se ejecutan localmente en tu navegador.</span>
+          <span class="footer-mark">REGEX LAB <span>·</span> 01</span>
+        </footer>
+      </section>
+    </main>
+  </body>
 </html>
